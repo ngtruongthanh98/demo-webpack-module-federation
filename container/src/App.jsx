@@ -4,6 +4,8 @@ import { store } from "./store";
 
 const RelatedProducts = React.lazy(() => import("Products/App"));
 
+// import Order from "Payment/Order";
+
 const App = () => {
     return (
         <Provider store={store}>
@@ -75,9 +77,11 @@ const Products = () => {
                                 />
                             </li>
                         </ul>
-                        <button className="font-medium hover:bg-gray-50 border border-gray-300 rounded p-3 mt-10">
+                        {/* <button className="font-medium hover:bg-gray-50 border border-gray-300 rounded p-3 mt-10">
                             Buy for 66,00 $
-                        </button>
+                        </button> */}
+
+                        {/* <VueButton /> */}
                     </div>
                 </div>
             </div>

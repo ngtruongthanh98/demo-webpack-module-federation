@@ -4,14 +4,21 @@ const { VueLoaderPlugin } = require("vue-loader");
 
 module.exports = {
     output: {
-        publicPath: "http://localhost:8080/",
+        publicPath: "http://localhost:8003/",
     },
 
     resolve: {
         extensions: [".vue", ".jsx", ".js", ".json"],
     },
     devServer: {
-        port: 8080,
+        port: 8003,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods":
+                "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+            "Access-Control-Allow-Headers":
+                "X-Requested-With, content-type, Authorization",
+        },
     },
 
     module: {
@@ -38,10 +45,13 @@ module.exports = {
         new VueLoaderPlugin(),
         new ModuleFederationPlugin({
             name: "Payment",
-            filename: "remoteEntry.js",
-            remotes: {},
+            filename: "payment.js",
+            remotes: {
+                FooterVue: "Footer@http://localhost:8004/footer.js",
+            },
             exposes: {
                 "./VueButton": "./src/components/VueButton.vue",
+                "./Order": "./src/components/Order.vue",
             },
             shared: require("./package.json").dependencies,
         }),

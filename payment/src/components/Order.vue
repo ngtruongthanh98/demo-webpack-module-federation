@@ -4,7 +4,7 @@
 
 <script>
 export default {
-    name: "Orders",
+    name: "Order",
     data() {
         return {
             amount: 0,

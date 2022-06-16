@@ -5,17 +5,17 @@
     >
     </VueButton>
 
-    <Orders amount="0" />
+    <Order amount="0" />
 </template>
 
 <script>
 import VueButton from "./components/VueButton.vue";
-import Orders from "./components/Orders.vue";
+import Order from "./components/Order.vue";
 
 export default {
     components: {
         VueButton,
-        Orders,
+        Order,
     },
 };
 </script>
